@@ -1,8 +1,8 @@
-{const caixaPrincipal = document.querySelector("caixa-principal");
-const caixaPerguntas = document.querySelector("caixa-perguntas");
-const caixaAlternativas = document.querySelector("caixa-alternativas");
-const caixaResultado = document.querySelector("caixa-resultado");
-const textoResultado = document.querySelector("texto-resultado");
+{const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
 const perguntas = [
 nunciado: 'pergunta 1',
 alternativas: ["alternativa1","alternativa2"]
@@ -18,5 +18,22 @@ let perguntatual;
 function motrapergunta(){
 perguntAtual = perguntas [atual];
 caixaPergunta.txtContent = PerguntaAtual.enunciado;
+mostraAlternativa();
+
+
+function mostraAlternativa(){
+  for(const alternativa of perguntaAtual.enunciado){
+     const botaoAlternativa= document.createElement("buttton");
+    botaoAlternativa.textContent=alternativa.texto;
+    caixaAlternativas.appendChild(botaoAlternativa);
+    
+
+  }
+
+
 }
+
 motrapergunta();
+
+
+{
