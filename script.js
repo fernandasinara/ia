@@ -14,22 +14,43 @@ alternativa: ["alternativa1","alternativa2"]
 ]
 let atual=0
 let perguntatual;
+let historiaFinal="";
 
 function motrapergunta(){
+  if(atual>=perguntatual.lenght){
+    mostraResultado();
+    return;
+  }
 perguntAtual = perguntas [atual];
 caixaPergunta.txtContent = PerguntaAtual.enunciado;
+caixaAlternativas.textContent="";
+textoResultado.textContent="";
 mostraAlternativa();
-
-
+}
 function mostraAlternativa(){
   for(const alternativa of perguntaAtual.enunciado){
-     const botaoAlternativa= document.createElement("buttton");
+     
+    const botaoAlternativa= document.createElement("buttton");
     botaoAlternativa.textContent=alternativa.texto;
-    caixaAlternativas.appendChild(botaoAlternativa);
-    
-
+    botaoAlternativa.addEventListener("click",()=>respostaSelecionada(alternativa){
+      atual++;
+      motrapergunta();
+    })
+      caixaAlternativas.appendChild(botaoAlternativa);
   }
+}
 
+function respostaSelecionada(opçãoSelecionada){
+  const afirmação = opçãoSelecionada.afirmação;
+  historiaFinal afirmação+" ";
+atual++
+}
+
+
+function mostraResultado(){
+  caixaPerguntas.textContent= "conclusao...";
+  textoResultado.textContent= historiaFinal
+  caixaAlternativas.textContent ="";
 
 }
 
